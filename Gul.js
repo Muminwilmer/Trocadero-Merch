@@ -1,7 +1,3 @@
-var winEmail = "" //This is the email which the code will be sent too
-if (winEmail == ""){
-    var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
-}
 function must() {
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
@@ -220,4 +216,3 @@ function must() {
         console.error("Error sending message to Discord webhook, This code won't work without a connection to discord:");
       });
   }
-  funny()
