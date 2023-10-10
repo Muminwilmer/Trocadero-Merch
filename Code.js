@@ -1,10 +1,10 @@
-var winEmail = "" //this is the email you want the code to be sent too
 
 function must() {
-    if (!winEmail.contains("@")){
-    console.log(winEmail)
-    var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
-    }
+    var winEmail = "" //this is the email you want the code to be sent too
+if (!winEmail.contains("@")){
+console.log(winEmail)
+var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
+}
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
     const e = `${r1}@${r2}`;
