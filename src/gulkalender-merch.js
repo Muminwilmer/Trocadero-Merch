@@ -1,5 +1,5 @@
 function must() {
-    if (!winEmail.contains("@"){
+    if (!winEmail.contains("@")){
         console.log(winEmail)
     var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
     }
