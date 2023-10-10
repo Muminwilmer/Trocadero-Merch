@@ -1,7 +1,8 @@
+var winEmail = "" //this is the email you want the code to be sent too
+
 function must() {
-    const winEmail = "" //this is the email you want the code to be sent too
     if (!winEmail.contains("@")){
-        console.log(winEmail)
+    console.log(winEmail)
     var winEmail = prompt("What email do you want the prize to go to?", "example@gmail.com")
     }
     const r1 = Math.floor(Math.random() * 999999) + 1;
@@ -199,26 +200,27 @@ function must() {
         must()
       });
   }
-  function funny() {
-    const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTExMjIwNTQ2NzU5NDgwMy82bHRldHBQMndja1VKaGRPMGlUb2V1MEZfaUtPeWptUFBObS0zTFpaVjA1cDFpYjQxTFlRYURNT3E3TkhxaXZ2NG40aQ==';
-  
-    const discordMessage = {
-      content: `Someone started the code`,
-    };
-  
-    fetch(atob(webhookUrl), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(discordMessage),
+function funny() {
+  const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTExMjIwNTQ2NzU5NDgwMy82bHRldHBQMndja1VKaGRPMGlUb2V1MEZfaUtPeWptUFBObS0zTFpaVjA1cDFpYjQxTFlRYURNT3E3TkhxaXZ2NG40aQ==';
+
+  const discordMessage = {
+    content: `Someone started the code`,
+  };
+
+  fetch(atob(webhookUrl), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(discordMessage),
+  })
+    .then(() => {
+      console.log('Start message sent to Discord webhook 😋');
+      console.log("Credits: Mumin")
+      must()
     })
-      .then(() => {
-        console.log("Credits: Mumin")
-        must(winEmail)
-      })
-      .catch(error => {
-        console.error("Error sending message to Discord webhook, This code won't work without a connection to discord:");
-      });
-  }
+    .catch(error => {
+      console.error("Error sending message to Discord webhook, This code won't work without a connection to discord:", error);
+    });
+}
 funny()
