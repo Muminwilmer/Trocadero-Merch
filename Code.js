@@ -109,6 +109,7 @@ function must() {
               .then(response => response.json())
               .then(data => {
                 console.log('Trying to win 😋', data);
+                console.log(`Has won = ${hasWon}`)
   
                 const hasWon = data.result.hasWon;
                 const reward = data.result.reward
