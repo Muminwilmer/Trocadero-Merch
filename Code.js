@@ -109,11 +109,12 @@ function must() {
               .then(response => response.json())
               .then(data => {
                 console.log('Trying to win 😋', data);
-                console.log(`Has won = ${hasWon}`)
   
                 const hasWon = data.result.hasWon;
                 const reward = data.result.reward
                 const winID = data.result.userRewardRK
+                
+                console.log(`Has won = ${hasWon}`)
                 if (hasWon) {
                     const webhookUrl = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTE2MTEwNjIzODcyMjAxNTIzMi9uTjJ6a0xJOGQ1aUFkamZidXk5UVBvdm50eUhuLVM5QnhORUJSTGpBNnZmNHNtNXk1d2xVQ1h4TFFQRjB1SFdtRmVrUw==';
                     const discordMessage = {
