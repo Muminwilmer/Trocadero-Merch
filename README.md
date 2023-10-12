@@ -1,5 +1,5 @@
 # Trocadero-Merch
-Skaffa gratis Merch från Gulkalendern!
+Skaffa gratis Merch från Gulkalendern! [PATCHED]
 
 1. Öppna [Gulkalendern](https://gulkalender.se)
    
